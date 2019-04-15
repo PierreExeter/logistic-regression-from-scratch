@@ -6,9 +6,9 @@ implementation for a classic binary classification problem.
 Further steps could be to add L2 regularization and multiclass classification.
 
 Inspired from 
-[https://www.coursera.org/learn/machine-learning](https://www.coursera.org/learn/machine-learning
+1. [https://www.coursera.org/learn/machine-learning](https://www.coursera.org/learn/machine-learning
 )
-[https://github.com/martinpella/logistic-reg](https://github.com/martinpella/logistic-reg)
+2. [https://github.com/martinpella/logistic-reg](https://github.com/martinpella/logistic-reg)
 
 ## Decision boundary
 ![Alt text](images/decision_boundary.png?raw=true "Decision boundary")
