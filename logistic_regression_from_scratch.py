@@ -37,7 +37,7 @@ def calc_h(X, theta):
     return h
 
 # DEFINE HYPERPARAMETERS
-lr = 0.01
+alpha = 0.01
 num_iter = 100000
 
 # FIT MODEL = FIND THE COEFFICIENTS THETA
@@ -45,19 +45,28 @@ XX = add_intercept(X)
 theta = np.zeros(XX.shape[1])
 m = y.size
 
+cost_list = []
+
 for i in range(num_iter):
     h = calc_h(XX, theta)
-    gradient = np.dot(XX.T, (h - y)) / m
-    theta -= lr * gradient  # gradient descent
     
-    z = np.dot(XX, theta)
-    h = sigmoid(z)
     cost = (-y * np.log(h) - (1 - y) * np.log(1 - h)).mean()
-        
+    cost_list.append(cost)
+    
+    gradient = np.dot(XX.T, (h - y)) / m
+    theta -= alpha * gradient  # gradient descent
+
+
     if i % 10000 == 0:
         print('Cost: {}'.format(cost))
 
 print('Coefficient: {}'.format(theta))
+
+# plot loss
+plt.figure()
+plt.plot(range(num_iter), cost_list)
+plt.show()
+
 
 # MAKE PREDICTIONS = USE THE COEFFICIENTS THETA TO ESTIMATE THE PREDICTION PROBABILITIES
 preds_prob = calc_h(XX, theta)
